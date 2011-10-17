@@ -84,7 +84,7 @@ class TicketsController extends TicketsAppController {
 			));		
 		$this->set(compact('ticket'));
 		
-		if (!empty($this->params['named']['archive'])) {
+		if (!empty($this->request->params['named']['archive'])) {
 			$conditions['Ticket.lft >='] = $ticket['Ticket']['lft'];
 			$conditions['Ticket.rght <='] = $ticket['Ticket']['rght'];
 		} else {
