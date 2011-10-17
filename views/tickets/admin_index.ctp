@@ -2,20 +2,20 @@
 <h2><?php __('Tickets');?></h2>
 <p>
 <?php
-echo $paginator->counter(array(
+echo $this->Paginator->counter(array(
 'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%', true)
 ));
 ?></p>
 <table cellpadding="0" cellspacing="0">
 <tr>
-	<th><?php echo $paginator->sort('id');?></th>
-	<th><?php echo $paginator->sort('subject');?></th>
-	<th><?php echo $paginator->sort('description');?></th>
-	<th><?php echo $paginator->sort('ticket_department_id');?></th>
-	<th><?php echo $paginator->sort('contact_id');?></th>
-	<th><?php echo $paginator->sort('creator_id');?></th>
-	<th><?php echo $paginator->sort('modifier_id');?></th>
-	<th><?php echo $paginator->sort('created');?></th>
+	<th><?php echo $this->Paginator->sort('id');?></th>
+	<th><?php echo $this->Paginator->sort('subject');?></th>
+	<th><?php echo $this->Paginator->sort('description');?></th>
+	<th><?php echo $this->Paginator->sort('ticket_department_id');?></th>
+	<th><?php echo $this->Paginator->sort('contact_id');?></th>
+	<th><?php echo $this->Paginator->sort('creator_id');?></th>
+	<th><?php echo $this->Paginator->sort('modifier_id');?></th>
+	<th><?php echo $this->Paginator->sort('created');?></th>
 	<th class="actions"><?php __('Actions');?></th>
 </tr>
 <?php

@@ -13,7 +13,7 @@
             </li>
 			<li>
             	<span class="label"><?php __('Created Date'); ?></span>
-                <span name="createddate" class="edit" id="<?php __($ticket['Ticket']['id']); ?>"><?php echo $time->format('M d, Y', $ticket['Ticket']['created']); ?></span>
+                <span name="createddate" class="edit" id="<?php __($ticket['Ticket']['id']); ?>"><?php echo $this->Time->format('M d, Y', $ticket['Ticket']['created']); ?></span>
             </li>
         <?php foreach ($ticket['TicketDepartment']['TicketDepartmentsAssignee'] as $assignee) { ?>
 			<li>
@@ -51,7 +51,7 @@
             		<?php echo $branch['Ticket']['description']; ?>
 	                <div id="extendeddetails<?php echo $branch['Ticket']['id']; ?>" class="hide">
 						<p><?php __('Creator '.$branch['Creator']['username']); ?></p>
-						<p><?php __('Created '.$time->nice($branch['Ticket']['created'])); ?></p>
+						<p><?php __('Created '.$this->Time->nice($branch['Ticket']['created'])); ?></p>
 	                </div>
     	        	<p class="action"><?php echo $this->Html->link(__('Show Details', true), array(''), array('class' => 'toggleClick', 'name' => 'extendeddetails'.$branch['Ticket']['id']));?><?php #echo $this->Html->link(__('Archive', true), array('action' => 'archive', $branch['Ticket']['id']));?><?php echo $this->Html->link(__('Reply', true), array(''), array('class' => 'toggleClick', 'name' => 'replyform'.$branch['Ticket']['id'])); ?></p>
                 </div>
@@ -65,7 +65,7 @@
                             
 	               				<div id="extendeddetails<?php echo $child['Ticket']['id']; ?>" class="hide">
 									<p><?php __('Creator: '.$child['Creator']['username']); ?></p>
-									<p><?php __('Created: '.$time->nice($child['Ticket']['created'])); ?></p>
+									<p><?php __('Created: '.$this->Time->nice($child['Ticket']['created'])); ?></p>
 				                </div>
     	        				<p class="action"><?php echo $this->Html->link(__('Show Details', true), array(''), array('class' => 'toggleClick', 'name' => 'extendeddetails'.$child['Ticket']['id']));?><?php #echo $this->Html->link(__('Archive', true), array('action' => 'archive', $child['Ticket']['id']));?><?php echo $this->Html->link(__('Reply', true), array(''), array('class' => 'toggleClick', 'name' => 'replyform'.$branch['Ticket']['id'])); ?></p>
 	                		</div>
@@ -92,7 +92,7 @@
 	</div>
   </div> 
 </div>
-<p class="timing"><strong><?php __($ticket['Ticket']['subject']);?></strong><?php __(' was '); ?><strong><?php __('Created: '); ?></strong><?php echo $time->relativeTime($ticket['Ticket']['created']); ?><?php __(', '); ?><strong><?php __('Last Modified: '); ?></strong><?php echo $time->relativeTime($ticket['Ticket']['modified']); ?></p>
+<p class="timing"><strong><?php __($ticket['Ticket']['subject']);?></strong><?php __(' was '); ?><strong><?php __('Created: '); ?></strong><?php echo $this->Time->relativeTime($ticket['Ticket']['created']); ?><?php __(', '); ?><strong><?php __('Last Modified: '); ?></strong><?php echo $this->Time->relativeTime($ticket['Ticket']['modified']); ?></p>
 
 </div>
 

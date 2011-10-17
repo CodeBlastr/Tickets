@@ -2,18 +2,18 @@
 <h2><?php __('My Tickets');?></h2>
 <p>
 <?php
-echo $paginator->counter(array(
+echo $this->Paginator->counter(array(
 'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%', true)
 ));
 ?></p>
 <table cellpadding="0" cellspacing="0">
 <tr>
-	<th><?php echo $paginator->sort('id');?></th>
-	<th><?php echo $paginator->sort('subject');?></th>
-	<th><?php echo $paginator->sort('description');?></th>
-	<th><?php echo $paginator->sort('ticket_department_id');?></th>
-	<th><?php echo $paginator->sort('creator_id');?></th>
-	<th><?php echo $paginator->sort('created');?></th>
+	<th><?php echo $this->Paginator->sort('id');?></th>
+	<th><?php echo $this->Paginator->sort('subject');?></th>
+	<th><?php echo $this->Paginator->sort('description');?></th>
+	<th><?php echo $this->Paginator->sort('ticket_department_id');?></th>
+	<th><?php echo $this->Paginator->sort('creator_id');?></th>
+	<th><?php echo $this->Paginator->sort('created');?></th>
 </tr>
 <?php
 $i = 0;
@@ -40,7 +40,7 @@ foreach ($tickets as $ticket):
 			<?php echo $this->Html->link($ticket['Creator']['username'], array('controller' => 'users', 'action' => 'view', $ticket['Creator']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $time->niceShort($ticket['Ticket']['created']); ?>
+			<?php echo $this->Time->niceShort($ticket['Ticket']['created']); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
