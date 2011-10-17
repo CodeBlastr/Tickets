@@ -1,19 +1,19 @@
 <div class="tickets form">
-<?php echo $form->create('Ticket', array('action' => 'edit'));?>
+<?php echo $this->Form->create('Ticket', array('action' => 'edit'));?>
 	<fieldset>
  		<legend><?php __('Add Ticket'); ?></legend>
 	<?php
-		echo $form->input('Ticket.ticket_department_id');
-		echo $form->input('Ticket.subject');
-		echo $form->input('Ticket.description', array('type' => 'richtext', 'ckeSettings' => array('buttons' => array('Bold','Italic','Underline','FontSize','TextColor','BGColor','-','NumberedList','BulletedList','Blockquote','JustifyLeft','JustifyCenter','JustifyRight','-','Link','Unlink','-', 'Image'))));
+		echo $this->Form->input('Ticket.ticket_department_id');
+		echo $this->Form->input('Ticket.subject');
+		echo $this->Form->input('Ticket.description', array('type' => 'richtext', 'ckeSettings' => array('buttons' => array('Bold','Italic','Underline','FontSize','TextColor','BGColor','-','NumberedList','BulletedList','Blockquote','JustifyLeft','JustifyCenter','JustifyRight','-','Link','Unlink','-', 'Image'))));
 	?>
          </div>
 	</fieldset>
-<?php echo $form->end('Submit');?>
+<?php echo $this->Form->end('Submit');?>
 </div>
 <?php 
 // set the contextual menu items
-$menu->setValue(array(
+$this->Menu->setValue(array(
 	array(
 		'heading' => 'Tickets',
 		'items' => array(
@@ -27,7 +27,7 @@ $menu->setValue(array(
 
 <?php 
 // set the contextual menu items
-$menu->setValue(array(
+$this->Menu->setValue(array(
 	array(
 		'heading' => 'Tickets',
 		'items' => array(

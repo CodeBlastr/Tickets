@@ -1,27 +1,27 @@
 <div class="tickets form">
-<?php echo $form->create('Ticket', array('url' => array('plugin' => 'tickets', 'controller' => 'tickets', 'action' => 'edit')));?>
+<?php echo $this->Form->create('Ticket', array('url' => array('plugin' => 'tickets', 'controller' => 'tickets', 'action' => 'edit')));?>
 	<fieldset>
  		<legend><?php __('Edit Ticket');?></legend>
 	<?php
-		echo $form->input('id');
-		echo $form->input('subject');
-		echo $form->input('description');
-		echo $form->input('ticket_department_id');
-		echo $form->input('contact_id');
+		echo $this->Form->input('id');
+		echo $this->Form->input('subject');
+		echo $this->Form->input('description');
+		echo $this->Form->input('ticket_department_id');
+		echo $this->Form->input('contact_id');
 	?>
 	</fieldset>
-<?php echo $form->end('Submit');?>
+<?php echo $this->Form->end('Submit');?>
 </div>
 
 
 
 <?php 
 // set the contextual menu items
-$menu->setValue(array(
+$this->Menu->setValue(array(
 	array(
 		'heading' => 'Tickets',
 		'items' => array(
-			$this->Html->link(__('Delete', true), array('action' => 'delete', $form->value('Ticket.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $form->value('Ticket.id'))),
+			$this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('Ticket.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('Ticket.id'))),
 			$this->Html->link(__('List Tickets', true), array('action' => 'index')),
 			)
 		),

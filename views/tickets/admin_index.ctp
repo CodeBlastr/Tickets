@@ -78,7 +78,7 @@ foreach ($tickets as $ticket):
 
 <?php 
 // set the contextual menu items
-$menu->setValue(array(
+$this->Menu->setValue(array(
 	array(
 		'heading' => 'Tickets',
 		'items' => array(

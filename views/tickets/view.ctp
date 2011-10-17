@@ -33,14 +33,14 @@
 	<div class="subissues data">
         <div class="issue">	
 		  <div id="addthreadform<?php echo $ticket['Ticket']['id']; ?>" class="hide">
-			<?php echo $form->create('Ticket', array('action' => 'edit'));?>
+			<?php echo $this->Form->create('Ticket', array('action' => 'edit'));?>
 				<?php
-					echo $form->input('subject'); 
-					echo $form->input('Ticket.description', array('type' => 'richtext', 'ckeSettings' => array('buttons' => array('Bold','Italic','Underline','FontSize','TextColor','BGColor','-','NumberedList','BulletedList','Blockquote','JustifyLeft','JustifyCenter','JustifyRight','-','Link','Unlink','-', 'Image'))));
-					echo $form->hidden('parent_id', array('value' => $ticket['Ticket']['id']));
-					echo $form->hidden('redirect', array('value' => $this->here));
+					echo $this->Form->input('subject'); 
+					echo $this->Form->input('Ticket.description', array('type' => 'richtext', 'ckeSettings' => array('buttons' => array('Bold','Italic','Underline','FontSize','TextColor','BGColor','-','NumberedList','BulletedList','Blockquote','JustifyLeft','JustifyCenter','JustifyRight','-','Link','Unlink','-', 'Image'))));
+					echo $this->Form->hidden('parent_id', array('value' => $ticket['Ticket']['id']));
+					echo $this->Form->hidden('redirect', array('value' => $this->here));
 				?>
-			<?php echo $form->end('Submit');?>
+			<?php echo $this->Form->end('Submit');?>
 		  </div>	
 		<?php
 		if ($ticketTree) { 
@@ -74,15 +74,15 @@
 				<?php } ?>	
               </div>	
 			<div id="replyform<?php echo $branch['Ticket']['id']; ?>" class="hide">
-				<?php echo $form->create('Ticket', array('action' => 'edit'));?>
+				<?php echo $this->Form->create('Ticket', array('action' => 'edit'));?>
 				<?php
-					echo $form->input('subject', array('value' => 'Re: '.$branch['Ticket']['subject'])); 
-					echo $form->input('ticket_department_id', array('type' => 'hidden', 'value' => $ticket['TicketDepartment']['id']));
-					echo $form->input('description');
-					echo $form->input('parent_id', array('type' => 'hidden', 'value' => $branch['Ticket']['id']));
-					echo $form->input('redirect', array('type' => 'hidden', 'value' => $this->here));
+					echo $this->Form->input('subject', array('value' => 'Re: '.$branch['Ticket']['subject'])); 
+					echo $this->Form->input('ticket_department_id', array('type' => 'hidden', 'value' => $ticket['TicketDepartment']['id']));
+					echo $this->Form->input('description');
+					echo $this->Form->input('parent_id', array('type' => 'hidden', 'value' => $branch['Ticket']['id']));
+					echo $this->Form->input('redirect', array('type' => 'hidden', 'value' => $this->here));
 				?>
-				<?php echo $form->end('Submit');?>
+				<?php echo $this->Form->end('Submit');?>
 			</div>   
 		<?php
             }
@@ -100,7 +100,7 @@
 
 <?php 
 // set the contextual menu items
-/*$menu->setValue(array(
+/*$this->Menu->setValue(array(
 	array(
 		'heading' => 'Tickets',
 		'items' => array(
