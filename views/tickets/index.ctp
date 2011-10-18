@@ -1,5 +1,5 @@
 <div class="tickets index">
-<h2><?php __('My Tickets');?></h2>
+<h2><?php echo __('My Tickets');?></h2>
 <p>
 <?php
 echo $this->Paginator->counter(array(

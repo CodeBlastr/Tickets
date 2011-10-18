@@ -1,42 +1,42 @@
 <div class="tickets view">
 <h2><?php  __('Ticket');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $ticket['Ticket']['id']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Parent'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Parent'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($ticket['Parent']['id'], array('controller' => 'tickets', 'action' => 'view', $ticket['Parent']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Subject'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Subject'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $ticket['Ticket']['subject']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Description'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Description'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $ticket['Ticket']['description']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Ticket Department'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Ticket Department'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($ticket['TicketDepartment']['name'], array('plugin' => null, 'controller' => 'enumerations', 'action' => 'view', $ticket['TicketDepartment']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Contact'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Contact'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($ticket['Contact']['id'], array('plugin' => 'contacts', 'controller' => 'contacts', 'action' => 'view', $ticket['Contact']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Creator'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Creator'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($ticket['Creator']['username'], array('plugin' => null, 'controller' => 'users', 'action' => 'view', $ticket['Creator']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Created'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $ticket['Ticket']['created']; ?>
 			&nbsp;

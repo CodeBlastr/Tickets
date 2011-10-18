@@ -1,7 +1,7 @@
 <div class="tickets form">
 <?php echo $this->Form->create('Ticket', array('url' => array('plugin' => 'tickets', 'controller' => 'tickets', 'action' => 'edit')));?>
 	<fieldset>
- 		<legend><?php __('Edit Ticket');?></legend>
+ 		<legend><?php echo __('Edit Ticket');?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('subject');

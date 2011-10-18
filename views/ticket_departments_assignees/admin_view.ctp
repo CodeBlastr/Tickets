@@ -1,37 +1,37 @@
 <div class="ticketDepartmentsAssignees view">
 <h2><?php  __('TicketDepartmentsAssignee');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $ticketDepartmentsAssignee['TicketDepartmentsAssignee']['id']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('User'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($ticketDepartmentsAssignee['User']['username'], array('controller' => 'users', 'action' => 'view', $ticketDepartmentsAssignee['User']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Ticket Department'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Ticket Department'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($ticketDepartmentsAssignee['TicketDepartment']['name'], array('controller' => 'enumerations', 'action' => 'view', $ticketDepartmentsAssignee['TicketDepartment']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Creator'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Creator'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($ticketDepartmentsAssignee['Creator']['username'], array('controller' => 'users', 'action' => 'view', $ticketDepartmentsAssignee['Creator']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Modifier'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Modifier'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($ticketDepartmentsAssignee['Modifier']['username'], array('controller' => 'users', 'action' => 'view', $ticketDepartmentsAssignee['Modifier']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Created'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $ticketDepartmentsAssignee['TicketDepartmentsAssignee']['created']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Modified'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Modified'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $ticketDepartmentsAssignee['TicketDepartmentsAssignee']['modified']; ?>
 			&nbsp;

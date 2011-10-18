@@ -1,6 +1,6 @@
  <div class="ticket view">
 	<div class="contactname">
-		<h2><span id="ticketsubject"><?php __($ticket['Ticket']['subject']); ?></span> for <?php echo $ticket['TicketDepartment']['name']; __('Department'); ?></h2>
+		<h2><span id="ticketsubject"><?php echo __($ticket['Ticket']['subject']); ?></span> for <?php echo $ticket['TicketDepartment']['name']; __('Department'); ?></h2>
 	</div>
 	
 <div id="tabscontent">
@@ -8,24 +8,24 @@
 	<div class="details data">
 		<ul class="detail datalist">
 			<li>
-            	<span class="label"><?php __('Department'); ?></span>
-                <span name="startdate" class="edit" id="<?php __($ticket['Ticket']['id']); ?>"><?php echo $ticket['TicketDepartment']['name']; ?></span>
+            	<span class="label"><?php echo __('Department'); ?></span>
+                <span name="startdate" class="edit" id="<?php echo __($ticket['Ticket']['id']); ?>"><?php echo $ticket['TicketDepartment']['name']; ?></span>
             </li>
 			<li>
-            	<span class="label"><?php __('Created Date'); ?></span>
-                <span name="createddate" class="edit" id="<?php __($ticket['Ticket']['id']); ?>"><?php echo $this->Time->format('M d, Y', $ticket['Ticket']['created']); ?></span>
+            	<span class="label"><?php echo __('Created Date'); ?></span>
+                <span name="createddate" class="edit" id="<?php echo __($ticket['Ticket']['id']); ?>"><?php echo $this->Time->format('M d, Y', $ticket['Ticket']['created']); ?></span>
             </li>
         <?php foreach ($ticket['TicketDepartment']['TicketDepartmentsAssignee'] as $assignee) { ?>
 			<li>
-            	<span class="label"><?php __('Assignee'); ?></span>
-                <span name="assignee" class="edit"  id="<?php __($ticket['Ticket']['id']); ?>"><?php echo $assignee['User']['username']; ?></span>
+            	<span class="label"><?php echo __('Assignee'); ?></span>
+                <span name="assignee" class="edit"  id="<?php echo __($ticket['Ticket']['id']); ?>"><?php echo $assignee['User']['username']; ?></span>
             </li>
        	<?php } ?>
 		</ul>
 	</div>
 	<div class="descriptions data">
 		<div class="description">
-			<div id="detail<?php echo $ticket['Ticket']['id']; ?>"><?php __($ticket['Ticket']['description']); ?></div>
+			<div id="detail<?php echo $ticket['Ticket']['id']; ?>"><?php echo __($ticket['Ticket']['description']); ?></div>
 		</div>
 	</div>
 	
@@ -50,8 +50,8 @@
             	<div class="hide" id="branchdescription<?php echo $branch['Ticket']['id']; ?>">
             		<?php echo $branch['Ticket']['description']; ?>
 	                <div id="extendeddetails<?php echo $branch['Ticket']['id']; ?>" class="hide">
-						<p><?php __('Creator '.$branch['Creator']['username']); ?></p>
-						<p><?php __('Created '.$this->Time->nice($branch['Ticket']['created'])); ?></p>
+						<p><?php echo __('Creator '.$branch['Creator']['username']); ?></p>
+						<p><?php echo __('Created '.$this->Time->nice($branch['Ticket']['created'])); ?></p>
 	                </div>
     	        	<p class="action"><?php echo $this->Html->link(__('Show Details', true), array(''), array('class' => 'toggleClick', 'name' => 'extendeddetails'.$branch['Ticket']['id']));?><?php #echo $this->Html->link(__('Archive', true), array('action' => 'archive', $branch['Ticket']['id']));?><?php echo $this->Html->link(__('Reply', true), array(''), array('class' => 'toggleClick', 'name' => 'replyform'.$branch['Ticket']['id'])); ?></p>
                 </div>
@@ -61,11 +61,11 @@
 						<div class="child-issue detail">
 	            			<p><span class="child-ticket-subject"><?php echo $this->Html->link(__($child['Ticket']['subject'], true), '', array('class' => 'toggleClick', 'name' => 'childdescription'.$child['Ticket']['id'])); ?></span></p>	
 	                        <div class="hide" id="childdescription<?php echo $child['Ticket']['id']; ?>">
-			                <?php __($child['Ticket']['description']); ?>
+			                <?php echo __($child['Ticket']['description']); ?>
                             
 	               				<div id="extendeddetails<?php echo $child['Ticket']['id']; ?>" class="hide">
-									<p><?php __('Creator: '.$child['Creator']['username']); ?></p>
-									<p><?php __('Created: '.$this->Time->nice($child['Ticket']['created'])); ?></p>
+									<p><?php echo __('Creator: '.$child['Creator']['username']); ?></p>
+									<p><?php echo __('Created: '.$this->Time->nice($child['Ticket']['created'])); ?></p>
 				                </div>
     	        				<p class="action"><?php echo $this->Html->link(__('Show Details', true), array(''), array('class' => 'toggleClick', 'name' => 'extendeddetails'.$child['Ticket']['id']));?><?php #echo $this->Html->link(__('Archive', true), array('action' => 'archive', $child['Ticket']['id']));?><?php echo $this->Html->link(__('Reply', true), array(''), array('class' => 'toggleClick', 'name' => 'replyform'.$branch['Ticket']['id'])); ?></p>
 	                		</div>
@@ -92,7 +92,7 @@
 	</div>
   </div> 
 </div>
-<p class="timing"><strong><?php __($ticket['Ticket']['subject']);?></strong><?php __(' was '); ?><strong><?php __('Created: '); ?></strong><?php echo $this->Time->relativeTime($ticket['Ticket']['created']); ?><?php __(', '); ?><strong><?php __('Last Modified: '); ?></strong><?php echo $this->Time->relativeTime($ticket['Ticket']['modified']); ?></p>
+<p class="timing"><strong><?php echo __($ticket['Ticket']['subject']);?></strong><?php echo __(' was '); ?><strong><?php echo __('Created: '); ?></strong><?php echo $this->Time->relativeTime($ticket['Ticket']['created']); ?><?php echo __(', '); ?><strong><?php echo __('Last Modified: '); ?></strong><?php echo $this->Time->relativeTime($ticket['Ticket']['modified']); ?></p>
 
 </div>
 

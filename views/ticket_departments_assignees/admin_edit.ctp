@@ -1,7 +1,7 @@
 <div class="ticketDepartmentsAssignees form">
 <?php echo $this->Form->create('TicketDepartmentsAssignee', array('url' => array('plugin' => 'tickets', 'controller' => 'ticket_departments_assignees', 'action' => 'edit')));?>
 	<fieldset>
- 		<legend><?php __('Edit TicketDepartmentsAssignee');?></legend>
+ 		<legend><?php echo __('Edit TicketDepartmentsAssignee');?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('user_id');

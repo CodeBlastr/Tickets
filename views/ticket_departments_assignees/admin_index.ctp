@@ -1,5 +1,5 @@
 <div class="ticketDepartmentsAssignees index">
-<h2><?php __('TicketDepartmentsAssignees');?></h2>
+<h2><?php echo __('TicketDepartmentsAssignees');?></h2>
 <p>
 <?php
 echo $this->Paginator->counter(array(
@@ -15,7 +15,7 @@ echo $this->Paginator->counter(array(
 	<th><?php echo $this->Paginator->sort('modifier_id');?></th>
 	<th><?php echo $this->Paginator->sort('created');?></th>
 	<th><?php echo $this->Paginator->sort('modified');?></th>
-	<th class="actions"><?php __('Actions');?></th>
+	<th class="actions"><?php echo __('Actions');?></th>
 </tr>
 <?php
 $i = 0;
