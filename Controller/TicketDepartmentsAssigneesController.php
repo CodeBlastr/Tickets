@@ -5,12 +5,12 @@ class TicketDepartmentsAssigneesController extends TicketsAppController {
 	var $helpers = array('Html', 'Form');
 
 	
-	function admin_index() {
+	function index() {
 		$this->TicketDepartmentsAssignee->recursive = 0;
 		$this->set('ticketDepartmentsAssignees', $this->paginate());
 	}
 
-	function admin_view($id = null) {
+	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid TicketDepartmentsAssignee.', true));
 			$this->redirect(array('action'=>'index'));
@@ -18,7 +18,7 @@ class TicketDepartmentsAssigneesController extends TicketsAppController {
 		$this->set('ticketDepartmentsAssignee', $this->TicketDepartmentsAssignee->read(null, $id));
 	}
 
-	function admin_edit($id = null) {
+	function edit($id = null) {
 		if (!empty($this->request->data)) {
 			if ($this->TicketDepartmentsAssignee->save($this->request->data)) {
 				$this->Session->setFlash(__('The TicketDepartmentsAssignee has been saved', true));
@@ -37,7 +37,7 @@ class TicketDepartmentsAssigneesController extends TicketsAppController {
 		$this->set(compact('users','ticketDepartments','creators','modifiers'));
 	}
 
-	function admin_delete($id = null) {
+	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for TicketDepartmentsAssignee', true));
 			$this->redirect(array('action'=>'index'));

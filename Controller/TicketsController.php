@@ -23,7 +23,6 @@
 class TicketsController extends TicketsAppController {
 
 	var $name = 'Tickets';
-	var $helpers = array('Cke');
 
 	function index() {
 		$this->paginate = array(
@@ -34,11 +33,8 @@ class TicketsController extends TicketsAppController {
 				),
 			'contain' => array(
 				'TicketDepartment',
-				'Contact' => array(
-					'ContactPerson',
-					'ContactCompany',
-					),
-				'Creator'
+				'Contact',
+				'Creator',
 				)
 			);
 		$this->set('tickets', $this->paginate());
@@ -71,10 +67,7 @@ class TicketsController extends TicketsAppController {
 				'Ticket.id' => $id
 				),
 			'contain' => array(
-				'Contact' => array(
-					'ContactPerson',
-					'ContactCompany',
-					),
+				'Contact',
 				'TicketDepartment' => array(
 					'TicketDepartmentsAssignee' => array(
 						'User',
@@ -129,68 +122,5 @@ class TicketsController extends TicketsAppController {
 			}
 		}
 	}
-
-	function admin_index() {
-		$this->paginate = array(
-			'conditions' => array(
-				# only show tickets for the logged in user
-				'Ticket.parent_id' => null
-				),
-			'contain' => array(
-				'TicketDepartment',
-				'Contact' => array(
-					'ContactPerson',
-					'ContactCompany',
-					),
-				'Creator',
-				'Modifier',
-				)
-			);
-		$this->set('tickets', $this->paginate());
-	}
-
-	function admin_view($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid Ticket.', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Ticket->recursive = 0;
-		$this->set('ticket', $this->Ticket->read(null, $id));
-	}
-
-	function admin_edit($id = null) {
-		if (!empty($this->request->data)) {
-			if ($this->Ticket->save($this->request->data)) {
-				$this->Session->setFlash(__('The Ticket has been saved', true));
-				$this->redirect(array('action'=>'index'));
-			} else {
-				$this->Session->setFlash(__('The Ticket could not be saved. Please, try again.', true));
-			}
-		}
-		if (empty($this->request->data)) {
-			$this->request->data = $this->Ticket->read(null, $id);
-		}
-		$ticketDepartments = $this->Ticket->TicketDepartment->find('list', array('conditions' => array('TicketDepartment.type' => 'TICKETDEPARTMENT')));
-		
-		$combines = $this->Ticket->Contact->query("SELECT concat(Contact.first_name, ' ', Contact.last_name) AS name, Contact.contact_id FROM contact_people AS Contact UNION SELECT Contact.name AS name, Contact.contact_id FROM contact_companies AS Contact ORDER BY contact_id");		
-		$contacts = array();
-		foreach ($combines as $combine) :
-			$contacts += array($combine[0]['contact_id'] => $combine[0]['name']); 
-		endforeach;	
-		
-		$this->set(compact('ticketDepartments','contacts'));
-	}
-
-	function admin_delete($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for Ticket', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		if ($this->Ticket->delete($id)) {
-			$this->Session->setFlash(__('Ticket deleted', true));
-			$this->redirect(array('action'=>'index'));
-		}
-	}
-
 }
 ?>
