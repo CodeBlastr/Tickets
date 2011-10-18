@@ -34,7 +34,7 @@ foreach ($tickets as $ticket):
 			<?php echo $ticket['Ticket']['subject']; ?>
 		</td>
 		<td>
-			<?php echo $text->truncate($ticket['Ticket']['description'], 75, array('ending' => '...', 'html' => true)); ?>
+			<?php echo $this->Text->truncate($ticket['Ticket']['description'], 75, array('ending' => '...', 'html' => true)); ?>
 		</td>
 		<td>
 			<?php echo $this->Html->link($ticket['TicketDepartment']['name'], array('controller' => 'enumerations', 'action' => 'view', $ticket['TicketDepartment']['id'])); ?>
