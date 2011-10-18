@@ -114,13 +114,13 @@ class TicketsController extends TicketsAppController {
 			$this->set(compact('ticketDepartments'));
 		} else {
 			# showing the second part of the two part form
-			if (empty($this->data)) {
+			if (empty($this->request->data)) {
 				echo 'this needs to be fixed to work with the forms plugin';
 			}
 		}
 		
-		if (!empty($this->data)) {
-			if ($this->Ticket->save($this->data)) {
+		if (!empty($this->request->data)) {
+			if ($this->Ticket->save($this->request->data)) {
 				$this->Session->setFlash(__('The Ticket has been saved', true));
 				$this->redirect(array('action'=>'view', $this->Ticket->id));
 			} else {
@@ -159,16 +159,16 @@ class TicketsController extends TicketsAppController {
 	}
 
 	function admin_edit($id = null) {
-		if (!empty($this->data)) {
-			if ($this->Ticket->save($this->data)) {
+		if (!empty($this->request->data)) {
+			if ($this->Ticket->save($this->request->data)) {
 				$this->Session->setFlash(__('The Ticket has been saved', true));
 				$this->redirect(array('action'=>'index'));
 			} else {
 				$this->Session->setFlash(__('The Ticket could not be saved. Please, try again.', true));
 			}
 		}
-		if (empty($this->data)) {
-			$this->data = $this->Ticket->read(null, $id);
+		if (empty($this->request->data)) {
+			$this->request->data = $this->Ticket->read(null, $id);
 		}
 		$ticketDepartments = $this->Ticket->TicketDepartment->find('list', array('conditions' => array('TicketDepartment.type' => 'TICKETDEPARTMENT')));
 		

@@ -19,16 +19,16 @@ class TicketDepartmentsAssigneesController extends TicketsAppController {
 	}
 
 	function admin_edit($id = null) {
-		if (!empty($this->data)) {
-			if ($this->TicketDepartmentsAssignee->save($this->data)) {
+		if (!empty($this->request->data)) {
+			if ($this->TicketDepartmentsAssignee->save($this->request->data)) {
 				$this->Session->setFlash(__('The TicketDepartmentsAssignee has been saved', true));
 				$this->redirect(array('action'=>'index'));
 			} else {
 				$this->Session->setFlash(__('The TicketDepartmentsAssignee could not be saved. Please, try again.', true));
 			}
 		}
-		if (empty($this->data)) {
-			$this->data = $this->TicketDepartmentsAssignee->read(null, $id);
+		if (empty($this->request->data)) {
+			$this->request->data = $this->TicketDepartmentsAssignee->read(null, $id);
 		}
 		$users = $this->TicketDepartmentsAssignee->User->find('list');
 		$ticketDepartments = $this->TicketDepartmentsAssignee->TicketDepartment->find('list', array('conditions' => array('TicketDepartment.type' => 'TICKETDEPARTMENT')));
