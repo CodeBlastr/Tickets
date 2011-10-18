@@ -17,7 +17,7 @@
 
 <?php 
 // set the contextual menu items
-$this->Menu->setValue(array(
+echo $this->Element('context_menu', array('menus' => array(
 	array(
 		'heading' => 'Tickets',
 		'items' => array(
@@ -33,6 +33,5 @@ $this->Menu->setValue(array(
 			$this->Html->link(__('Department Assignees', true), array('controller' => 'ticket_departments_assignees', 'action' => 'index')),
 			)
 		),
-	)
-);
+	)));
 ?>

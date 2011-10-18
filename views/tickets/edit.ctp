@@ -13,7 +13,7 @@
 </div>
 <?php 
 // set the contextual menu items
-$this->Menu->setValue(array(
+echo $this->Element('context_menu', array('menus' => array(
 	array(
 		'heading' => 'Tickets',
 		'items' => array(
@@ -27,13 +27,12 @@ $this->Menu->setValue(array(
 
 <?php 
 // set the contextual menu items
-$this->Menu->setValue(array(
+echo $this->Element('context_menu', array('menus' => array(
 	array(
 		'heading' => 'Tickets',
 		'items' => array(
 			$this->Html->link(__('My Tickets', true), array('action' => 'index')),
 			)
 		),
-	)
-);
+	)));
 ?>

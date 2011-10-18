@@ -49,13 +49,12 @@ foreach ($tickets as $ticket):
 <?php echo $this->element('paging'); ?>
 <?php 
 // set the contextual menu items
-/*$this->Menu->setValue(array(
+/*echo $this->Element('context_menu', array('menus' => array(
 	array(
 		'heading' => 'Tickets',
 		'items' => array(
 			$this->Html->link(__('New Ticket', true), array('action' => 'edit')),
 			)
 		),
-	)
-);*/
+	)));*/
 ?>
