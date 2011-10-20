@@ -101,7 +101,7 @@ class TicketsController extends TicketsAppController {
 	}
 
 	function edit() {	
-		if (empty($this->params['url']['ticket_department_id'])) {
+		if (empty($this->request->params['url']['ticket_department_id'])) {
 			# showing the first part of a two part form
 			$ticketDepartments = $this->Ticket->TicketDepartment->find('list', array('conditions' => array('TicketDepartment.type' => 'TICKETDEPARTMENT')));
 			$this->set(compact('ticketDepartments'));
