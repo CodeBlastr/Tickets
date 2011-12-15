@@ -1,8 +1,9 @@
 <?php
 class TicketDepartmentsAssigneesController extends TicketsAppController {
 
-	var $name = 'TicketDepartmentsAssignees';
-	var $helpers = array('Html', 'Form');
+	public $name = 'TicketDepartmentsAssignees';
+	public $uses = 'Tickets.TicketDepartmentsAssignee';
+	public $helpers = array('Html', 'Form');
 
 	
 	function index() {

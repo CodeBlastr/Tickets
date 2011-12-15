@@ -22,7 +22,8 @@
  */
 class TicketsController extends TicketsAppController {
 
-	var $name = 'Tickets';
+	public $name = 'Tickets';
+	public $uses = 'Tickets.Ticket';
 
 	function index() {
 		$this->paginate = array(
