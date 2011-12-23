@@ -96,8 +96,6 @@
 
 </div>
 
-<?php # pr($ticketTree); ?>
-
 <?php 
 // set the contextual menu items
 /*$this->set('context_menu', array('menus' => array(
@@ -110,4 +108,3 @@
 		),
 	)));*/
 ?>
-<?php #pr($ticket); ?>
